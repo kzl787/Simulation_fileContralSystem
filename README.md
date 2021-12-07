@@ -63,24 +63,24 @@
 	Windows 10     VS2019
 
 	四、程序的时序图：
-	  ![image](https://user-images.githubusercontent.com/94117475/144962201-5fceb5db-e557-4df9-b311-c5660708c174.png)
+![image](https://user-images.githubusercontent.com/94117475/144962201-5fceb5db-e557-4df9-b311-c5660708c174.png)
 	  五、主要算法及数据结构
 
 	1.整个系统的结构：本系统盘块大小为1KB，每1024个盘块构成1个数据块组，共100个数据块组，所以数据区的总大小为100M(不包括数据区前面的内容)
 
-	![image](https://user-images.githubusercontent.com/94117475/144962220-dfdaf3f2-c328-48c9-8411-2b2283e93f94.png)
+![image](https://user-images.githubusercontent.com/94117475/144962220-dfdaf3f2-c328-48c9-8411-2b2283e93f94.png)
 
 	  超级块的结构：存放系统的信息，记录系统的空间使用状况。
 
-	  ![image](https://user-images.githubusercontent.com/94117475/144962271-39341ce4-5acf-444b-8c4c-a36535d15711.png)
+![image](https://user-images.githubusercontent.com/94117475/144962271-39341ce4-5acf-444b-8c4c-a36535d15711.png)
 
 	i结点的结构图：描述文件的属性，是寻找文件的关建所在。因为采取连续存储的结构，所以i结点的只存放文件的起立物理地址，该存储结构使得在顺序读取文件时速度很快，但无法进行文件的随机查找。
 
-	  ![image](https://user-images.githubusercontent.com/94117475/144962298-e6daad68-c516-4953-84a6-c1cb24629a44.png)
+![image](https://user-images.githubusercontent.com/94117475/144962298-e6daad68-c516-4953-84a6-c1cb24629a44.png)
 
 	  目录：用于存储指定具体目录所包含文件(包括目录)的数目和具体的文件内容
 
-	  ![image](https://user-images.githubusercontent.com/94117475/144962305-6fdec438-5276-4e91-b757-82b8709d0da4.png)
+![image](https://user-images.githubusercontent.com/94117475/144962305-6fdec438-5276-4e91-b757-82b8709d0da4.png)
 
 	  注：子文件组中第一个位置存放的父目录的信息，第二文件是本目录的信息；
 
@@ -88,7 +88,8 @@
 	1.查找操作目录：文件管理系统的实现最根本的是要实行文件的增删查改，而这些操作本质上都是在对应的目录中进行的，所以大部分指令都需要先找到对应的目录的，对该目录下进行操作。
 
 	算法分析：该算法是采用深度搜索，算法的复杂度取决与文件系统目录的深度和读取文件内容上，相较于读取文件，找到对应目录的索引结点号的时间可以忽略不计，主要时间是花在对文件的读写操作。
-	  算法流程图：![image](https://user-images.githubusercontent.com/94117475/144962367-c95da50f-a6e7-40fd-97a9-b6cc4b4ca7b1.png)
+	算法流程图：
+![image](https://user-images.githubusercontent.com/94117475/144962367-c95da50f-a6e7-40fd-97a9-b6cc4b4ca7b1.png)
 
 	3.分离路径和文件名：用户在输入指令时，路径中可能包含路径和要操作的文件名，很多情况下，我们需要将其分离出来；
 
@@ -96,7 +97,7 @@
 
 	  3.获取当前工作路径：当使用cd命令时，需要改变当前的工作目录，为了使用户清晰的知道当前的工作目录，需要在命令提示符前将当前工作路径输出。
 
-	  ![image](https://user-images.githubusercontent.com/94117475/144962420-6e1e1f62-abb7-4e60-945b-43af669b3ce8.png)
+![image](https://user-images.githubusercontent.com/94117475/144962420-6e1e1f62-abb7-4e60-945b-43af669b3ce8.png)
 
 	  算法分析：该算法利用函数的递归，直到找到根目录，再从根目录开始将目录名加入路劲中。想要实现路劲的提取还可利用堆栈的数据的结构实现，利用的是堆栈先进后出的原理，这与函数的调用是相同的思路。
 
@@ -104,7 +105,8 @@
 
 	算法分析：从系统的起始数据块开始，找到第一段满足条件的空间，将文件存入其中。该算法的优点是当有特别大的文件需要存放时可以找到满足条件的空闲空间，但由于文件的大小并不是一样的，每次都找到第一段满足条件的空间会使前面的空闲空间被分割成很多小的空间（外部碎片），由于空间太小而无法得到利用。
 
-	  程序流程图：![image](https://user-images.githubusercontent.com/94117475/144962482-cf3691cc-b52b-4497-a3ba-908d75b1dfac.png)
+	  程序流程图：
+![image](https://user-images.githubusercontent.com/94117475/144962482-cf3691cc-b52b-4497-a3ba-908d75b1dfac.png)
 
 	命令实现流程
 
@@ -226,7 +228,7 @@
 	
 	一、程序时序图：
 	
-	![image](https://user-images.githubusercontent.com/94117475/144963854-06927b30-db65-4da5-9a86-185c2d854253.png)
+![image](https://user-images.githubusercontent.com/94117475/144963854-06927b30-db65-4da5-9a86-185c2d854253.png)
 	
 	二、主要数据结构和算法：
 
@@ -255,7 +257,7 @@
 	3、主要算法：
 	1.shell与管理程序的通信：
 
-	![image](https://user-images.githubusercontent.com/94117475/144963975-520c02f5-5596-4a96-a365-97cb86e33e54.png)
+![image](https://user-images.githubusercontent.com/94117475/144963975-520c02f5-5596-4a96-a365-97cb86e33e54.png)
 
 	三、具体实现shell的流程
 
